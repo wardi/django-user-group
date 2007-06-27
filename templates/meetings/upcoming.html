@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %}
+
+{% load markup %}
+{% load meetings_image %}
+
+{% block precontent %}
+{% if announcements %}
+<div class="box" style="margin-bottom: 1ex;">
+<div class="boxtop">
+<h1 class="h1boxtop">Announcements</h1>
+</div>
+<div class="contentbox">
+{% for ann in announcements %}
+    {% if forloop.counter0 %}
+    <br clear="right">
+    {% endif %}
+    {% if ann.image %}
+        {% meetings_image ann.image 'align="right" style="padding-top: 1em;"' %}
+    {% endif %}
+    <h1>{{ ann.title|escape }}</h1>
+    <div style="padding-top: 1ex;">
+    {{ ann.text|markdown }}
+    </div>
+{% endfor %}
+<br clear="right" />
+</div>
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block boxtop %}
+<h1 class="h1boxtop">Upcoming Meetings and Events</h1>
+{% endblock %}
+
+
+{% block content %}
+<div class="center">
+<small><strong>OCLUG meets on the first Tuesday of every month at 7pm</strong></small>
+</div>
+
+{% if object_list %}
+    {% for object in object_list %}
+        {% include "meetings/meeting_info.html" %}
+    {% endfor %}
+{% endif %}    
+{% endblock %}
+

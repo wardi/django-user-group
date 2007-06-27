@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+
+{% load markup %}
+
+{% block boxtop %}
+<h1 class="h1boxtop">{{ object.name|escape }}</h1>
+{% endblock %}
+
+{% block content %}
+{% if object.image %}
+    <img align="right" src="{{ object.get_image_url }}" 
+    alt="{{ object.name|escape }}"/>
+{% endif %}
+<div>
+{{ object.background|markdown }}
+</div>
+
+{% if object.talks %}
+    <div style="padding-top: 1em;">
+    <h3>Talks given:</h3>
+    {% for talk in object.talks.all %}
+        <div style="padding-top: 1ex;">
+        {{ talk.meeting.date.date|date:"Y.m.d" }}
+        <span style="color: #5f6666;">{{ talk.meeting.readable_format }}:</span>
+        <a href="{{ talk.meeting.get_absolute_url }}"
+        >{{ talk.topic|escape }}</a>
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}
+
+</div>
+{% endblock %}

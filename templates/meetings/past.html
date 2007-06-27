@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block boxtop %}
+<h1 class="h1boxtop">Past Meetings and Events</h1>
+{% endblock %}
+
+{% block content %}
+{% if object_list %}
+    {% for meeting in object_list %}
+        {% include "meetings/meeting_brief.html" %}
+    {% endfor %}
+    {% if is_paginated %}
+        <div style="padding-top: 1em;">
+        {% if has_previous %}
+            <a href="?page={{ previous }}">&lt;&lt;previous</a>
+        {% else %}
+            <span style="#ddd;">&lt;&lt;previous</span>
+        {% endif %}
+        [{{ page }} of {{ pages }}]
+        {% if has_next %}
+            <a href="?page={{ next }}">next&gt;&gt;</a>
+        {% else %}
+            <span style="#ddd;">next&gt;&gt;</span>
+        {% endif %}
+        </div>
+    {% endif %}
+{% else %}
+    <p>No meetings currently posted.</p>
+{% endif %}
+{% endblock %}

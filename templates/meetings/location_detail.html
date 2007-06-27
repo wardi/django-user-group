@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+{% load markup %}
+
+{% block boxtop %}
+<h1 class="h1boxtop">{{ object.name|escape }}</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+{% if object.url %}
+Finding the location: {{ object.url|urlizetrunc:"30" }}<br/>
+{% endif %}
+
+{% if object.detail_url %}
+Detailed map: {{ object.detail_url|urlizetrunc:"30" }}<br/>
+{% endif %}
+
+<div style="padding-top: 1ex;">{{ object.directions|markdown }}</div>
+
+{% if object.meetings %}
+    <div style="padding-top: 1em;">
+    <h3>Meetings held at this location:</h3>
+    {% for meeting in object.meetings.all %}
+        {% include "meetings/meeting_brief.html" %}
+    {% endfor %}
+    </div>
+{% endif %}
+
+</div>
+{% endblock %}

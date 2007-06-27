@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% load markup %}
+
+{% block boxtop %}
+<h1 class="h1boxtop">{{ flatpage.title|escape }}</h1>
+{% endblock %}
+
+{% block content %}
+{% ifequal flatpage.title "Bylaw 1" %}
+    {{ flatpage.content }}
+{% else %}
+    {{ flatpage.content|markdown }}
+{% endifequal %}
+{% endblock %}

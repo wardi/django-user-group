@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title|escape }} | {% trans 'OCLUG site admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'OCLUG administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block footer %}<div id="footer">
+<a href="http://daringfireball.net/projects/markdown/syntax">Markdown format reference</a>
+</div>{% endblock %}
