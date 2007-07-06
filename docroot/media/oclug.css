@@ -39,9 +39,8 @@
         font-size: 12pt;
         color: black;
         font-weight: bold;
-        text-align: center;
-        margin: 5px;
-        margin-top: 20px;
+        /*text-align: center;*/
+        margin: 5px 5px 5px 0;
     }
     .black  {
         color: #000;
@@ -171,6 +170,24 @@
     }
     .center {
         text-align: center;
+    }
+    .coords {
+    	padding-left: 2ex;
+    }
+    .meeting_info {
+    	margin-top: 2ex;
+    }
+    .meeting_info:first-child {
+    	margin-top: 0;
+    }
+    .talk_info {
+    	margin-top: 0.5ex;
+    }
+    .talk_info:first-child {
+    	margin-top: 0;
+    }
+    .thinbr {
+    	margin-bottom: -2em;
     }
 
 

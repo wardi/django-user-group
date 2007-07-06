@@ -1,14 +1,14 @@
 {% load markup %}
 {% load meetings_image %}
 
-<div style="padding-top: 1ex;">
+<div class="meeting_info">
 {% if object.image %}
-    {% meetings_image object.image 'align="right" style="padding-top:1em;"' %}
+    {% meetings_image object.image 'align="right"' %}
 {% endif %}
 <h1>
 <span style="color: #5f6666;">{{ object.readable_format }}:</span>
 {{ object.summary|escape }}</h1>
-<p> Date: {{ object.date.date|date:"F j, Y" }} at
+<p class="coords"> Date: {{ object.date.date|date:"F j, Y" }} at
 {{ object.date.time|time:"P" }} <br/>
 Location: <a href="{{ object.location.get_absolute_url }}"
 >{{ object.location.name|escape }}</a><br/>
@@ -20,18 +20,18 @@ Location: <a href="{{ object.location.get_absolute_url }}"
 {% endif %}
 {% if object.talks %}
     {% for talk in object.talks.all %}
-        <div style="padding-top: 1ex;">
+        <div class="talk_info">
         {% if talk.image %}
             {% meetings_image talk.image 'align="left" style="padding-right: 1ex; padding-bottom: 1ex;"' %}
         {% endif %}
-        <p>Speaker: <a href="{{ talk.speaker.get_absolute_url }}"
+        Speaker: <a href="{{ talk.speaker.get_absolute_url }}"
         >{{ talk.speaker.name|escape }}</a><br/>
         <h2>{{ talk.topic|escape }}</h2>
         {{ talk.description|markdown }}
-        <br clear="left"/>
+        <br clear="left" class="thinbr"/>
         </div>
     {% endfor %}
 {% endif %}
-<br clear="right" />
+<br clear="right" class="thinbr"/>
 </div>
 
