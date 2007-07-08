@@ -3,7 +3,7 @@
 
 <div class="meeting_info">
 {% if object.image %}
-    {% meetings_image object.image 'align="right"' %}
+    {% meetings_image object.image 'class="floatright"' %}
 {% endif %}
 <h1>
 <span style="color: #5f6666;">{{ object.readable_format }}:</span>
@@ -22,16 +22,16 @@ Location: <a href="{{ object.location.get_absolute_url }}"
     {% for talk in object.talks.all %}
         <div class="talk_info">
         {% if talk.image %}
-            {% meetings_image talk.image 'align="left" style="padding-right: 1ex; padding-bottom: 1ex;"' %}
+            {% meetings_image talk.image 'class="floatleft"' %}
         {% endif %}
         Speaker: <a href="{{ talk.speaker.get_absolute_url }}"
         >{{ talk.speaker.name|escape }}</a><br/>
         <h2>{{ talk.topic|escape }}</h2>
         {{ talk.description|markdown }}
-        <br clear="left" class="thinbr"/>
+        <br class="thinbr" />
         </div>
     {% endfor %}
 {% endif %}
-<br clear="right" class="thinbr"/>
+<br class="thinbr" />
 </div>
 

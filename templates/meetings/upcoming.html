@@ -12,17 +12,17 @@
 <div class="contentbox">
 {% for ann in announcements %}
     {% if forloop.counter0 %}
-    <br clear="right">
+    <br class="thinbr" />
     {% endif %}
     {% if ann.image %}
-        {% meetings_image ann.image 'align="right"' %}
+        {% meetings_image ann.image 'class="floatright"' %}
     {% endif %}
     <h1>{{ ann.title|escape }}</h1>
     <div style="padding-top: 1ex;">
     {{ ann.text|markdown }}
     </div>
 {% endfor %}
-<br clear="right" />
+<br class="thinbr" />
 </div>
 </div>
 {% endif %}

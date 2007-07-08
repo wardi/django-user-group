@@ -188,6 +188,15 @@
     }
     .thinbr {
     	margin-bottom: -2em;
+        clear: both;
     }
-
-
+    .floatleft {
+        float: left;
+        margin-right: 1ex;
+        margin-bottom: 1ex;
+    }
+    .floatright {
+        float: right;
+        margin-left: 1ex;
+        margin-bottom: 1ex;
+    }

@@ -8,7 +8,7 @@
 
 {% block content %}
 {% if object.image %}
-    <img align="right" src="{{ object.get_image_url }}" 
+    <img class="floatright" src="{{ object.get_image_url }}" 
     alt="{{ object.name|escape }}"/>
 {% endif %}
 <div>
