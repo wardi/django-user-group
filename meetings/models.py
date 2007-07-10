@@ -24,7 +24,7 @@ class Image(models.Model):
         return self.get_src_url()
 
     class Admin:
-        list_display = ['src','title','alt','reuse', 'width', 'height']
+        list_display = ['get_src_url','title','alt','reuse', 'width', 'height']
         list_filter = ['reuse']
         search_fields = ['title','alt']
         
