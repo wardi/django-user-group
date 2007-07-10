@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% load meetings_image %}
+
+{% block boxtop %}
+<h1 class="h1boxtop">{{ img.title|escape }}</h1>
+{% endblock %}
+
+{% block content %}
+{% meetings_image img %}
+{% endblock %}

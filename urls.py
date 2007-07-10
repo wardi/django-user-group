@@ -53,6 +53,9 @@ urlpatterns = patterns('',
         'django.views.generic.list_detail.object_detail', 
         {'queryset':Speaker.objects.all()}),
 
+    (r'^image/(?P<path>.+)/$', 
+        'meetings.views.view_image'),
+
     (r'^admin/', include('django.contrib.admin.urls')),
 
     (r'^feeds/(?P<url>.*)/$', 
