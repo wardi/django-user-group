@@ -4,10 +4,55 @@ from local_settings import DEBUG, DATABASE_ENGINE, DATABASE_NAME, \
     DATABASE_USER, DATABASE_PASSWORD, DATABASE_HOST, DATABASE_PORT, \
     SECRET_KEY, MEDIA_ROOT, TEMPLATE_DIRS
 
+# The settings above were removed from this file so that they can be 
+# customized on a per-site basis.  local_settings.py is not checked in
+# with the rest of the source code, if you are running this code on
+# a different system create a local_settings.py file with content like
+# the following:
+#
+## # Example local_settings.py
+##
+## DEBUG = True
+##
+## DATABASE_ENGINE = 'sqlite3'    # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
+## DATABASE_NAME = '/var/local/apache_writable/oclug.db'     # Or path to database file if using sqlite3.
+## DATABASE_USER = ''             # Not used with sqlite3.
+## DATABASE_PASSWORD = ''         # Not used with sqlite3.
+## DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
+## DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+##
+## 
+## # Make this unique, and don't share it with anybody.
+## SECRET_KEY = '(t$6(biz=dc*ecq%2*p$uwsog9y*r-#i_vx#iom=5x*2fp2vr)'
+##
+## # Absolute path to the directory that holds media.
+## # Example: "/home/media/media.lawrence.com/"
+##
+## MEDIA_ROOT = '/var/local/apache_writable/oclug_uploads/'
+## TEMPLATE_DIRS = (
+##     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+##     # Always use forward slashes, even on Windows.
+##     # Don't forget to use absolute paths, not relative paths.
+##     '(PLACE-WHERE-WHERE-YOU-HAVE-oclug_django_site)/templates',
+## )
+#
+#
+# If you use the settings above you will need to set up the "apache_writable"
+# directory.  To set up the directory and load the site data run the following
+# as root:
+#
+## mkdir -p /var/local/apache_writable/oclug_uploads/
+## rsync --exclude .svn (PLACE-WHERE-YOU-HAVE-site_data)/uploads/ /var/local/apache_writable/oclug_uploads/
+## chown -R www-data: /var/local/apache_writable/
+## cd (PLACE-WHERE-WHERE-YOU-HAVE-oclug_django_site)
+## python manage.py loaddata (PLACE-WHERE-YOU-HAVE-site_data)/db.xml
+## python manage.py syncdb  # this will let you create an admin account
+
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('OCLUG Web List', 'oclug-www@lists.oclug.on.ca'),
 )
 
 MANAGERS = ADMINS

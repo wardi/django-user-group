@@ -4,6 +4,11 @@ from django.template import Library
 register = Library()
 
 def meetings_image(obj, extra=""):
+    """
+    Generate a complete <img> tag based on the image model "obj".
+    "extra" may contain extra attributes for the <img>.
+    """
+    
     if extra:
         extra = " "+extra
     return '<img src="%s" alt="%s" title="%s" width="%d" height="%d"%s/>' %(

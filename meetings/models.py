@@ -202,6 +202,9 @@ class Talk(models.Model):
     def __str__(self):
         return self.topic
     
+    ## don't show on the admin interface, these should be edited from
+    ## the Meeting page
+    #
     #class Admin:
     #    search_fields = ['topic', 'description']
     #    list_display = ['topic', 'meeting', 'speaker']

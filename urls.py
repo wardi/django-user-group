@@ -5,13 +5,18 @@ from meetings.feeds import UpcomingMeetings
 
 import datetime
 
-def now_plus_meeting_length():
-    return datetime.datetime.now() + datetime.timedelta(hours=2)
+
+# show meetings that have not yet finished on the upcoming page
+# and the rest on the past meetings page.  A meeting is considered
+# "done" 2 hours after it starts.
+
+def now_less_meeting_length():
+    return datetime.datetime.now() - datetime.timedelta(hours=2)
 
 
 upcoming_meetings = {
     'queryset': Meeting.objects.filter(visible=True,
-        date__gte=now_plus_meeting_length).order_by("date"),
+        date__gte=now_less_meeting_length).order_by("date"),
     'template_name': 'meetings/upcoming.html',
     'allow_empty': True,
     'extra_context': {
@@ -22,15 +27,21 @@ upcoming_meetings = {
 
 past_meetings = {
     'queryset': Meeting.objects.filter(visible=True,
-        date__lt=now_plus_meeting_length),
+        date__lt=now_less_meeting_length),
     'template_name': 'meetings/past.html',
     'allow_empty': True,
     'paginate_by': 20,
 }
 
+
+# RSS feeds
+
 feeds = {
     'upcoming': UpcomingMeetings,
 }
+
+
+# URLs
 
 urlpatterns = patterns('',
     (r'^$', 
