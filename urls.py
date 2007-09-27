@@ -54,7 +54,7 @@ urlpatterns = patterns('',
 
     (r'^meeting/(?P<object_id>\d+)/$', 
         'django.views.generic.list_detail.object_detail',
-        {'queryset':Meeting.objects.filter(visible=True)}),
+        {'queryset':Meeting.objects.all()}),
 
     (r'^location/(?P<object_id>\d+)/$', 
         'django.views.generic.list_detail.object_detail', 

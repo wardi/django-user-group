@@ -52,6 +52,7 @@ class Announcement(models.Model):
         list_display = ['title','visible']
         list_filter = ['visible']
         search_fields = ['title','text']
+        save_on_top = True
 
     class Meta:
         ordering = ['created']
@@ -129,6 +130,9 @@ class Meeting(models.Model):
     image = models.ForeignKey(Image, null=True, blank=True, 
         help_text='Image to be displayed next to the meeting '
         'information')
+    donations = models.DecimalField(max_digits=10, decimal_places=2,
+        null=True, blank=True,
+        help_text='Amount donated at this meeting')
     
     def __str__(self):
         return self.summary
@@ -159,7 +163,10 @@ class Meeting(models.Model):
                 ['format', 'location'],
                 'date']}),
             ('Extra Description', {'fields': ['description', 'image'],
+                'classes': 'collapse'}),
+            ('Accounting', {'fields': ['donations'],
                 'classes': 'collapse'})]
+        save_on_top = True
     
     class Meta:
         ordering = ['-date']    
