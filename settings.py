@@ -41,12 +41,12 @@ from local_settings import DEBUG, DATABASE_ENGINE, DATABASE_NAME, \
 # directory.  To set up the directory and load the site data run the following
 # as root:
 #
-## mkdir -p /var/local/apache_writable/oclug_uploads/
-## rsync --exclude .svn (PLACE-WHERE-YOU-HAVE-site_data)/uploads/ /var/local/apache_writable/oclug_uploads/
-## chown -R www-data: /var/local/apache_writable/
+## mkdir -p /var/local/apache_writable/oclug_uploaded/
+## rsync -r --exclude .svn (PLACE-WHERE-YOU-HAVE-site_data)/uploaded/ /var/local/apache_writable/oclug_uploaded/
 ## cd (PLACE-WHERE-WHERE-YOU-HAVE-oclug_django_site)
-## python manage.py loaddata (PLACE-WHERE-YOU-HAVE-site_data)/db.xml
 ## python manage.py syncdb  # this will let you create an admin account
+## python manage.py loaddata (PLACE-WHERE-YOU-HAVE-site_data)/db.xml
+## chown -R www-data: /var/local/apache_writable/
 
 
 TEMPLATE_DEBUG = DEBUG
