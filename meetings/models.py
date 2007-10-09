@@ -102,7 +102,10 @@ def next_meeting():
         prev = Meeting.objects.latest().date
     except Meeting.DoesNotExist:
         prev = datetime.datetime.now()
-    next = datetime.datetime(prev.year, prev.month+1, 1, 19)
+    next_yr, next_mn = prev.year, prev.month+1
+    if next_mn==13:
+        next_yr, next_mn = next_yr+1, 1
+    next = datetime.datetime(next_yr, next_mn, 1, 19)
     wd = next.weekday() # 0 = Monday
     # shift to the first Tuesday
     return next + datetime.timedelta([1, 0, 6, 5, 4, 3, 2][wd])
