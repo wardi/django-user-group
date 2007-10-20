@@ -9,7 +9,7 @@
 <div class="boxtop">
 <h1 class="h1boxtop">Announcements</h1>
 </div>
-<div class="contentbox">
+<div class="contentbox" style="padding-bottom:0">
 {% for ann in announcements %}
     {% if forloop.counter0 %}
     <br class="thinbr" />
@@ -17,10 +17,8 @@
     {% if ann.image %}
         {% meetings_image ann.image 'class="floatright"' %}
     {% endif %}
-    <h1>{{ ann.title|escape }}</h1>
-    <div style="padding-top: 1ex;">
+    <h1 style="margin:0">{{ ann.title|escape }}</h1>
     {{ ann.text|markdown }}
-    </div>
 {% endfor %}
 <br class="thinbr" />
 </div>
