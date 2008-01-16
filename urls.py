@@ -24,7 +24,7 @@ upcoming_meetings = {
             lambda: Announcement.objects.filter(visible=True),
         'recent':
             lambda: Meeting.objects.filter(visible=True,
-        date__lt=now_less_meeting_length).order_by("-date")[:2],
+        date__lt=now_less_meeting_length).order_by("-date")[:1],
     }
 }
 

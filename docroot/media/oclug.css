@@ -15,6 +15,7 @@
         font-family: helvetica,sans-serif; 
         font-size: 9pt;
         background-color: #eeeeee;
+	text-align: center;
     }
     p {
         text-align: left;
@@ -130,10 +131,12 @@
         voice-family:inherit;
     }
     #page {
-	width: 65em;
+	width: 75em;
 	background-color: white;
-	padding: 4px;
+	padding: 4px 8px;
 	border: 1px solid #dddddd;
+	margin: 0 auto;
+	text-align: left;
     }
     .adminlink {
 	float: right;
@@ -165,12 +168,12 @@
 
     .leftbox {
 	float: left;
-	width: 36em;
+	width: 46em;
 	margin-right: 4px;
 	margin-bottom: 4px;
     }
     .rightbox {
-	padding-left: 36em;
+	padding-left: 46em;
 	margin-left: 4px;
 	padding-bottom: 4px;
     }
