@@ -2,11 +2,17 @@
 
 {% load markup %}
 
-{% block boxtop %}
-<h1 class="h1boxtop">{{ object.name|escape }}</h1>
+{% block title %}
+{{ object.name|escape }} - OCLUG
 {% endblock %}
 
 {% block content %}
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">{{ object.name|escape }}</h2>
+</div>
+<div class="contentbox">
+
 <div>
 {% if object.url %}
 Finding the location: {{ object.url|urlizetrunc:"30" }}<br/>
@@ -27,5 +33,7 @@ Detailed map: {{ object.detail_url|urlizetrunc:"30" }}<br/>
     </div>
 {% endif %}
 
+</div>
+</div>
 </div>
 {% endblock %}

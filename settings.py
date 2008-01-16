@@ -114,3 +114,7 @@ INSTALLED_APPS = (
     'django.contrib.redirects',
     'meetings',
 )
+
+# use local-memory caching backend
+CACHE_BACKEND = 'locmem:///'
+

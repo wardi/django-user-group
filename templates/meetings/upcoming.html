@@ -2,12 +2,53 @@
 
 {% load markup %}
 {% load meetings_image %}
+{% load devel_feed %}
 
-{% block precontent %}
-{% if announcements %}
-<div class="box" style="margin-bottom: 1ex;">
+
+{% block content %}
+<div class="leftbox">
 <div class="boxtop">
-<h1 class="h1boxtop">Announcements</h1>
+<h2 class="h2boxtop">Upcoming Meetings and Events
+<a href="/feeds/upcoming/"><img src="/media/rss.png" width="14" height="14"
+alt="rss icon" title="Upcoming Meeting RSS Feed" /></a></h2>
+</div>
+<div class="contentbox">
+<div class="center">
+<small><strong>OCLUG meets on the first Tuesday of every month at 7pm</strong></small>
+</div>
+
+{% if object_list %}
+    {% for object in object_list %}
+        {% include "meetings/meeting_info.html" %}
+    {% endfor %}
+{% endif %}    
+</div>
+</div>
+
+{% if recent %}
+    <div class="leftbox">
+    <div class="boxtop">
+    <h2 class="h2boxtop"><a href="/past_meetings/">Past Meetings</a></h2>
+    </div>
+    <div class="contentbox">
+    <div class="center">
+    </div>
+
+    {% for object in recent %}
+        {% include "meetings/meeting_info.html" %}
+    {% endfor %}
+    
+    <a href="/past_meetings/">more...</a>
+    </div>
+    </div>
+{% endif %}    
+
+
+
+{% if announcements %}
+<div class="rightbox">
+<div class="boxtop">
+<h1 class="h2boxtop">Announcements</h1>
 </div>
 <div class="contentbox" style="padding-bottom:0">
 {% for ann in announcements %}
@@ -20,29 +61,20 @@
     <h1 style="margin:0">{{ ann.title|escape }}</h1>
     {{ ann.text|markdown }}
 {% endfor %}
-<br class="thinbr" />
+<br class="thinbrright" />
 </div>
 </div>
 {% endif %}
-{% endblock %}
 
-
-{% block boxtop %}
-<h1 class="h1boxtop">Upcoming Meetings and Events
-<a href="/feeds/upcoming/"><img src="/media/rss.png" width="14" height="14"
-alt="rss icon" title="Upcoming Meeting RSS Feed" /></a></h1>
-{% endblock %}
-
-
-{% block content %}
-<div class="center">
-<small><strong>OCLUG meets on the first Tuesday of every month at 7pm</strong></small>
+<div class="rightbox">
+<div class="boxtop">
+<h2 class="h2boxtop"><a href="http://devel.oclug.on.ca"
+>devel.oclug.on.ca</a></h2>
+</div>
+<div class="contentbox" style="padding-bottom:0">
+{% devel_feed %}
+</div>
 </div>
 
-{% if object_list %}
-    {% for object in object_list %}
-        {% include "meetings/meeting_info.html" %}
-    {% endfor %}
-{% endif %}    
 {% endblock %}
 

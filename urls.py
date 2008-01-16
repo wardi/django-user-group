@@ -21,7 +21,10 @@ upcoming_meetings = {
     'allow_empty': True,
     'extra_context': {
         'announcements':
-            lambda: Announcement.objects.filter(visible=True)
+            lambda: Announcement.objects.filter(visible=True),
+        'recent':
+            lambda: Meeting.objects.filter(visible=True,
+        date__lt=now_less_meeting_length).order_by("-date")[:2],
     }
 }
 

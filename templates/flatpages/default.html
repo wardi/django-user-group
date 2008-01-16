@@ -2,14 +2,22 @@
 
 {% load markup %}
 
-{% block boxtop %}
-<h1 class="h1boxtop">{{ flatpage.title|escape }}</h1>
+{% block title %}
+{{ flatpage.title|escape }} - OCLUG
 {% endblock %}
 
 {% block content %}
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">{{ flatpage.title|escape }}</h2>
+</div>
+<div class="contentbox">
+
 {% ifequal flatpage.title "Bylaw 1" %}
     {{ flatpage.content }}
 {% else %}
     {{ flatpage.content|markdown }}
 {% endifequal %}
+</div>
+</div>
 {% endblock %}

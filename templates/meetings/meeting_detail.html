@@ -1,11 +1,19 @@
 {% extends "base_generic.html" %}
 
-{% block boxtop %}
-<h1 class="h1boxtop">{{ object.summary|escape }}</h1>
+{% block title %}
+{{ object.summary|escape }} - OCLUG
 {% endblock %}
 
 {% block content %}
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">{{ object.summary|escape }}</h2>
+</div>
+<div class="contentbox">
+
 <div>
 {% include "meetings/meeting_info.html" %}
+</div>
+</div>
 </div>
 {% endblock %}

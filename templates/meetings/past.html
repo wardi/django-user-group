@@ -1,10 +1,15 @@
 {% extends "base_generic.html" %}
 
-{% block boxtop %}
-<h1 class="h1boxtop">Past Meetings and Events</h1>
+{% block title %}
+Past Meetings and Events - OCLUG
 {% endblock %}
 
 {% block content %}
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">Past Meetings and Events</h2>
+</div>
+<div class="contentbox">
 {% if object_list %}
     {% for meeting in object_list %}
         {% include "meetings/meeting_brief.html" %}
@@ -27,4 +32,6 @@
 {% else %}
     <p>No meetings currently posted.</p>
 {% endif %}
+</div>
+</div>
 {% endblock %}

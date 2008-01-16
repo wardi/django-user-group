@@ -2,10 +2,19 @@
 
 {% load meetings_image %}
 
-{% block boxtop %}
-<h1 class="h1boxtop">{{ img.title|escape }}</h1>
+{% block title %}
+{{ img.title|escape }} - OCLUG
 {% endblock %}
 
 {% block content %}
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">{{ img.title|escape }}</h2>
+</div>
+<div class="contentbox">
+
 {% meetings_image img %}
+</div>
+</div>
+</div>
 {% endblock %}

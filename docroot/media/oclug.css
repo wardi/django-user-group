@@ -1,10 +1,10 @@
     a:link {
-        color: #0000ff;
-        text-decoration: underline;
+        color: #2222dd;
+        text-decoration: none;
     }
     a:visited { 
         color: navy;
-        text-decoration : underline; 
+        text-decoration : none;
     }
     a:hover {
         text-decoration: underline;
@@ -13,8 +13,8 @@
     }
     body { 
         font-family: helvetica,sans-serif; 
-        font-size: 10pt;
-        background-color: white;
+        font-size: 9pt;
+        background-color: #eeeeee;
     }
     p {
         text-align: left;
@@ -23,7 +23,7 @@
     }
     a { 
         font-family: sans-serif;
-        text-decoration: underline; 
+        text-decoration: none;
         color: black; 
         /*font-weight: bold;*/
     }
@@ -39,11 +39,7 @@
         font-size: 12pt;
         color: black;
         font-weight: bold;
-        /*text-align: center;*/
-        margin: 5px 5px 5px 0;
-    }
-    .black  {
-        color: #000;
+        margin: 5px;
     }
     h2 {
         font-size: 11pt;
@@ -78,62 +74,113 @@
         color: black;
         margin-bottom: 0px;
     }
-    ul {
-        list-style: none;
-        list-style-type: none;
-        margin: 5px;
-        border: none;
-        padding: 5px;   
-    }
     td {
         text-align: left;
-    }
-    li {
-        margin: 2px;
-        padding: 2px;
     }
     .search {
         margin-left: auto;
         margin-right: auto;
     }
     .menu {
-        border: 1pt solid #000;
+        border: 1px solid #000;
         background: #e6e6e6;
         padding: 10px;
-        margin: 0px;
+        margin: 0px 0px 0px 165px;
         voice-family: "\"}\"";
         voice-family:inherit;
     }
-    .menu a {
-        /*font-family: georgia,sans-serif;*/
-        display: block;
-        font-size: 10pt;
-        margin-left: 10px;
-        margin-top: 2px;
-        font-weight: normal;
-        text-decoration: underline;
+    .menu ul {
+	/*float: left;*/
+        list-style: none;
+        list-style-type: none;
+        margin: 0;
+        padding: 0px 1ex 0px 1px;   
     }
-    .menu h1  {
+    .menu ul li  {
         text-align: left;
-        border: 0pt solid #000;
-        background: #e6e6e6;
-        margin-top: 0px;
-        margin-left: 0px;
-        margin-bottom: 0px;
-        font-weight: bold;
-        font-size: 12pt;
+        font-size: 8pt;
+	font-weight: bold;
+	margin: 0;
+	padding: 3px 0px;
+    }
+    .menu ul li ul {
+        list-style-type: none;
+	display: inline;
+	position: relative;
+	margin-left: -8em;
+	left: 8em;
+	padding-right: 8em;
+	padding-left: 1em;
+    }
+    .menu ul li ul li{
+        list-style-type: none;
+	display: inline;
+	padding-right: 1ex;
+	white-space: nowrap;
+    }
+    .menu a {
+        font-weight: normal;
     }
     .box {
-        border: 0pt solid #000;
+        border: 0px solid #000;
         background: black;
         padding: 0px;
         margin: 0px;
         voice-family: "\"}\"";
         voice-family:inherit;
     }
+    #page {
+	width: 65em;
+	background-color: white;
+	padding: 4px;
+	border: 1px solid #dddddd;
+    }
+    .adminlink {
+	float: right;
+        font-size: 8pt;
+	color: #888888;
+    }
+    .tagline {
+	font-size: 8pt;
+	color: #888888;
+	margin-bottom: 1ex;
+    }
+    .logo {
+	padding-right: 1ex;
+    }
+    .menubox {
+	padding-bottom: 4px;
+	width: 100%;
+	overflow: hidden;
+    }
+    .develitem {
+	font-size: 8pt;
+	margin-bottom: 1em;
+    }
+    
+    /* these classes come from the devel.oclug.on.ca feed */
+    .add, .delete, .edit, .copy, .move {
+	display: none;
+    }
+
+    .leftbox {
+	float: left;
+	width: 36em;
+	margin-right: 4px;
+	margin-bottom: 4px;
+    }
+    .rightbox {
+	padding-left: 36em;
+	margin-left: 4px;
+	padding-bottom: 4px;
+    }
+    .midbox {
+	padding-left: 165px;
+	width: 45em; 
+    }
     .boxtop {
-        border: 1pt solid #000;
-        border-bottom: 0pt solid #000;
+        border: 1px solid #000;
+        border-bottom: 0px solid #000;
         background: #bfcccc;
         padding: 1px;
         margin: 0px;
@@ -142,16 +189,16 @@
         voice-family: "\"}\"";
         voice-family:inherit;
     }
-    .h1boxtop {
-        font-size: 12pt;
+    .h2boxtop {
+        font-size: 10pt;
         color: black;
         font-weight: bold;
-        text-align: center;
+	padding-left: 1em;
         margin: 1px;
     }
     .contentbox {
-        border-top: 0pt solid #000;
-        border: 1pt solid #000;
+        border-top: 0px solid #000;
+        border: 1px solid #000;
         background: #f5f5f5;
         padding: 10px;
         margin: 0px;
@@ -167,9 +214,6 @@
         font-size: 105%;
         color: navy;
         font-weight: bold;
-    }
-    .center {
-        text-align: center;
     }
     .coords {
     	padding-left: 2ex;
@@ -190,6 +234,10 @@
     	margin-bottom: -2em;
         clear: both;
     }
+    .thinbrright {
+    	margin-bottom: -2em;
+        clear: right;
+    }
     .floatleft {
         float: left;
         margin-right: 1ex;
@@ -199,4 +247,7 @@
         float: right;
         margin-left: 1ex;
         margin-bottom: 1ex;
+    }
+    .thinbr {
+	margin-bottom: -2em;
     }
