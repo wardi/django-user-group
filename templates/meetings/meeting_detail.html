@@ -1,5 +1,8 @@
 {% extends "base_generic.html" %}
 
+{% load markup %}
+{% load meetings_image %}
+
 {% block title %}
 {{ object.summary|escape }} - OCLUG
 {% endblock %}
@@ -12,8 +15,53 @@
 <div class="contentbox">
 
 <div>
-{% include "meetings/meeting_info.html" %}
+<div class="meeting_info">
+{% if object.image %}
+    {% meetings_image object.image 'class="floatleft"' %}
+{% endif %}
+<h1>
+{{ object.readable_format }}:
+{{ object.summary|escape }}</h1>
+<p class="coords"> Date: {{ object.date.date|date:"F j, Y" }} at
+{{ object.date.time|time:"P" }} <br/>
+Location: <a href="{{ object.location.get_absolute_url }}"
+>{{ object.location.name|escape }}</a><br/>
+</p>
+{% if object.description %}
+    <div style="padding-top: 1ex;">
+    {{ object.description|markdown }}
+    </div>
+{% endif %}
+{% if object.talks %}
+    {% for talk in object.talks.all %}
+    	{% include "meetings/talk_info.html" %}
+
+	{% if talk.speaker.background %}
+	    <div style="padding-bottom: 1em;">
+	    <h3>About the Speaker</h3>
+	    {{ talk.speaker.background|markdown }}
+	    </div>
+	{% endif %}
+    {% endfor %}
+{% endif %}
+<br class="thinbr" />
 </div>
+</div>
+
+<div>
+<h2>Finding the Meeting Location</h2>
+{% if object.location.url %}
+{{ object.location.url|urlize }}<br/>
+{% endif %}
+
+{% if object.location.detail_url %}
+{{ object.location.detail_url|urlize }}<br/>
+{% endif %}
+
+<div style="padding-top: 1ex;">{{ object.location.directions|markdown }}</div>
+
+</div>
+
 </div>
 </div>
 {% endblock %}

@@ -1,15 +1,15 @@
     a:link {
-        color: #2222dd;
+        color: #800804;
         text-decoration: none;
     }
     a:visited { 
-        color: navy;
+        color: #2c5e7b;
         text-decoration : none;
     }
     a:hover {
         text-decoration: underline;
         background: #ffffcc;
-        color: navy;
+        color: #cb0d07;
     }
     body { 
         font-family: helvetica,sans-serif; 
@@ -84,7 +84,7 @@
     }
     .menu {
         border: 1px solid #000;
-        background: #e6e6e6;
+        background: #d1dadf;
         padding: 10px;
         margin: 0px 0px 0px 165px;
 	line-height: 1.5;
@@ -114,10 +114,9 @@
     .menu ul li ul li{
         list-style-type: none;
 	display: inline;
-	margin-right: 0.1ex;
-	padding: 0.3ex 0.4ex 0.3ex 0.4ex;
+	padding: 0.4ex 0.5ex;
 	white-space: nowrap;
-        background: #f2f2f2;
+        background: #dae0e4;
     }
     .menu a {
         font-weight: normal;
@@ -147,7 +146,7 @@
     .tagline {
 	font-size: 95%;
 	color: #888888;
-	margin-bottom: 1ex;
+	margin-bottom: 1em;
     }
     .logo {
 	padding-right: 1ex;
@@ -178,14 +177,18 @@
     }
     .midbox {
 	padding-left: 165px;
-	width: 45em; 
+	width: 55em; 
+    }
+    .imagebox {
+	text-align: center;
     }
     .boxtop {
         border: 1px solid #000;
         border-bottom: 0px solid #000;
-        background: #bfcccc;
+        background: #9fb7c5;
         padding: 1px;
         margin: 0px;
+	text-align: left;
         /* height: 30px; */
         /* width: 100%; */
         voice-family: "\"}\"";
@@ -199,9 +202,10 @@
         margin: 1px;
     }
     .contentbox {
+	text-align: left;
         border-top: 0px solid #000;
         border: 1px solid #000;
-        background: #f5f5f5;
+        background: #f5f5ff;
         padding: 10px;
         margin: 0px;
         height: 100%;
@@ -209,6 +213,9 @@
         /* width: 100%; */
         voice-family: "\"}\"";
         voice-family:inherit;
+    }
+    .rightbox .contentbox {
+	overflow: hidden;
     }
     .valid  {
         margin-top: 25pt;

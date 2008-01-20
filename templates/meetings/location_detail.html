@@ -15,11 +15,11 @@
 
 <div>
 {% if object.url %}
-Finding the location: {{ object.url|urlizetrunc:"30" }}<br/>
+Finding the location: {{ object.url|urlizetrunc:"80" }}<br/>
 {% endif %}
 
 {% if object.detail_url %}
-Detailed map: {{ object.detail_url|urlizetrunc:"30" }}<br/>
+Detailed map: {{ object.detail_url|urlizetrunc:"80" }}<br/>
 {% endif %}
 
 <div style="padding-top: 1ex;">{{ object.directions|markdown }}</div>

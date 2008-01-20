@@ -1,7 +1,6 @@
 <div style="padding-top: 1ex;">
 {{ meeting.date.date|date:"Y.m.d" }}
-<span style="color: #5f6666;">{{ meeting.readable_format }}:</span>
-<a href="{{ meeting.get_absolute_url }}">
-{{ meeting.summary|escape }}</a>
+<a href="{{ meeting.get_absolute_url }}">{{ meeting.readable_format }}:</a>
+{{ meeting.summary|escape }}
 </div>
 

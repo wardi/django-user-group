@@ -3,10 +3,10 @@
 
 <div class="meeting_info">
 {% if object.image %}
-    {% meetings_image object.image 'class="floatright"' %}
+    {% meetings_image object.image 'class="floatleft"' %}
 {% endif %}
 <h1>
-<span style="color: #5f6666;">{{ object.readable_format }}:</span>
+<a href="{{ object.get_absolute_url }}">{{ object.readable_format }}:</a>
 {{ object.summary|escape }}</h1>
 <p class="coords"> Date: {{ object.date.date|date:"F j, Y" }} at
 {{ object.date.time|time:"P" }} <br/>
@@ -20,16 +20,7 @@ Location: <a href="{{ object.location.get_absolute_url }}"
 {% endif %}
 {% if object.talks %}
     {% for talk in object.talks.all %}
-        <div class="talk_info">
-        {% if talk.image %}
-            {% meetings_image talk.image 'class="floatleft"' %}
-        {% endif %}
-        Speaker: <a href="{{ talk.speaker.get_absolute_url }}"
-        >{{ talk.speaker.name|escape }}</a><br/>
-        <h2>{{ talk.topic|escape }}</h2>
-        {{ talk.description|markdown }}
-        <br class="thinbr" />
-        </div>
+    	{% include "meetings/talk_info.html" %}
     {% endfor %}
 {% endif %}
 <br class="thinbr" />
