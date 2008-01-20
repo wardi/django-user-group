@@ -6,17 +6,20 @@
 
 
 {% block content %}
+
+{# upcoming meetings box #}
+
 <div class="leftbox">
 <div class="boxtop">
 <a href="/feeds/upcoming/"><img align="left" src="/media/rss.png" width="14" height="14" style="margin: 0.3ex 1ex;"
 alt="rss icon" title="Upcoming Meeting RSS Feed" /></a><h2 class="h2boxtop">Upcoming Meetings and Events
 </h2>
 </div>
+
 <div class="contentbox">
 <div class="center">
 <small><strong>OCLUG meets on the first Tuesday of every month at 7pm</strong></small>
 </div>
-
 {% if object_list %}
     {% for object in object_list %}
         {% include "meetings/meeting_info.html" %}
@@ -24,22 +27,23 @@ alt="rss icon" title="Upcoming Meeting RSS Feed" /></a><h2 class="h2boxtop">Upco
 {% endif %}    
 </div>
 
+{# past meetings box (in same "leftbox" div) #}
+
 {% if recent %}
     <div class="boxtop">
     <h2 class="h2boxtop"><a href="/past_meetings/">Past Meetings</a></h2>
     </div>
-    <div class="contentbox">
-    <div class="center">
-    </div>
 
+    <div class="contentbox">
     {% for object in recent %}
         {% include "meetings/meeting_info.html" %}
     {% endfor %}
-    
     <a href="/past_meetings/">more...</a>
     </div>
 {% endif %}    
 </div>
+
+{# announcements #}
 
 {% if announcements %}
 <div class="rightbox">
@@ -62,12 +66,16 @@ alt="rss icon" title="Upcoming Meeting RSS Feed" /></a><h2 class="h2boxtop">Upco
 </div>
 {% endif %}
 
+{# devel.oclug.on.ca box #}
+
 <div class="rightbox">
 <div class="boxtop">
-<h2 class="h2boxtop"><a href="http://devel.oclug.on.ca"
->devel.oclug.on.ca</a></h2>
+<a href='{% devel_feed "True" %}'><img align="left" src="/media/rss.png" width="14" height="14" style="margin: 0.3ex 1ex;"
+alt="rss icon" title="devel.oclug.on.ca RSS Feed" /></a><h2 
+class="h2boxtop"><a href="http://devel.oclug.on.ca">devel.oclug.on.ca</a></h2>
 </div>
 <div class="contentbox" style="padding-bottom:0">
+{# render devel.oclug.on.ca feed (see meetings/templatetags/devel_feed.py) #}
 {% devel_feed %}
 </div>
 </div>

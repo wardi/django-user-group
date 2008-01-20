@@ -120,6 +120,7 @@
     }
     .menu a {
         font-weight: normal;
+	color: #2c5e7b;
     }
     .box {
         border: 0px solid #000;
@@ -216,6 +217,9 @@
     }
     .rightbox .contentbox {
 	overflow: hidden;
+    }
+    .rightbox .meeting_brief {
+        display: block;
     }
     .valid  {
         margin-top: 25pt;

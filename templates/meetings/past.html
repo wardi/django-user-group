@@ -5,9 +5,34 @@ Past Meetings and Events - OCLUG
 {% endblock %}
 
 {% block content %}
-<div class="midbox">
+
+{# if this is the first page of past_meetings then show recent meeting #}
+{# details in the left column #}
+
+{% ifequal page 1 %}
+    <div class="leftbox">
+    <div class="boxtop">
+    <h2 class="h2boxtop">Recent Meeting Details</h2>
+    </div>
+    <div class="contentbox">
+    {% for object in recent %}
+        {% include "meetings/meeting_info.html" %}
+    {% endfor %}
+    </div>
+    </div>
+{% endifequal %}
+
+{# Move past meetings list to the right column if recent meeting #}
+{# details are shown #}
+
+{% ifequal page 1 %}
+    <div class="rightbox">
+{% endifequal %}
+{% ifnotequal page 1 %}
+    <div class="midbox">
+{% endifnotequal %}
 <div class="boxtop">
-<h2 class="h2boxtop">Past Meetings and Events</h2>
+<h2 class="h2boxtop">Past Meetings</h2>
 </div>
 <div class="contentbox">
 {% if object_list %}
@@ -17,15 +42,15 @@ Past Meetings and Events - OCLUG
     {% if is_paginated %}
         <div style="padding-top: 1em;">
         {% if has_previous %}
-            <a href="?page={{ previous }}">&lt;&lt;previous</a>
+            <a href="?page={{ previous }}">&lt;&lt; later</a>
         {% else %}
-            <span style="#ddd;">&lt;&lt;previous</span>
+            <span style="#ddd;">&lt;&lt; later</span>
         {% endif %}
         [{{ page }} of {{ pages }}]
         {% if has_next %}
-            <a href="?page={{ next }}">next&gt;&gt;</a>
+            <a href="?page={{ next }}">earlier &gt;&gt;</a>
         {% else %}
-            <span style="#ddd;">next&gt;&gt;</span>
+            <span style="#ddd;">earlier &gt;&gt;</span>
         {% endif %}
         </div>
     {% endif %}

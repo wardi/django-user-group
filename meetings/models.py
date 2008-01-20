@@ -140,17 +140,27 @@ class Meeting(models.Model):
     def __str__(self):
         return self.summary
    
-    def readable_format(self):
+    def readable_format(self, hide_year=False):
+        """
+        return a string describing the meeting format.
+
+        hide_year -- if True then the year will be hidden for LITW and AGMs
+        """
+
         if self.format == "A":
-            return self.date.strftime("%Y") + " AGM"
+            return self.date.strftime("%Y ") * (not hide_year) + "AGM"
         if self.format == "W":
-            return self.date.strftime("%Y") + " LITW"
+            return self.date.strftime("%Y ") * (not hide_year) + "LITW"
         mn = self.date.strftime("%B")
         if self.format == "M":
             return mn + " Meeting"
         if self.format == "T":
             return mn + " Tutorial"
     
+    def readable_format_no_year(self):
+        """a convenience function for calling from templates"""
+        return self.readable_format(hide_year=True)
+
     def get_absolute_url(self):
         return "/meeting/%d/" % self.id
     

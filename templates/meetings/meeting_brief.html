@@ -1,6 +1,7 @@
 <div style="padding-top: 1ex;">
-{{ meeting.date.date|date:"Y.m.d" }}
-<a href="{{ meeting.get_absolute_url }}">{{ meeting.readable_format }}:</a>
+<span class="meeting_brief"><a href="{{ meeting.get_absolute_url }}"
+>{{ meeting.date.date|date:"Y" }}
+{{ meeting.readable_format_no_year }}</a></span>
 {{ meeting.summary|escape }}
 </div>
 

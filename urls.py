@@ -34,6 +34,11 @@ past_meetings = {
     'template_name': 'meetings/past.html',
     'allow_empty': True,
     'paginate_by': 20,
+    'extra_context': {
+        'recent':
+            lambda: Meeting.objects.filter(visible=True,
+        date__lt=now_less_meeting_length).order_by("-date")[:5],
+    }
 }
 
 

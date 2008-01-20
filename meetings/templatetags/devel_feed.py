@@ -14,11 +14,16 @@ DATE_OUT_FORMAT = "%d %b %H:%M"
 
 register = Library()
 
-def devel_feed():
+def devel_feed(url_only=False):
     """
     Generate HTML for recent entries from development timeline.
     Use the cache module to avoid fetching on every request.
+
+    url_only -- if True then only return the url to the rss feed
     """
+
+    if url_only:
+        return FEED_URL
 
     out = cache.get('devel_feed')
     if out:
