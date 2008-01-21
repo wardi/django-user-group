@@ -190,6 +190,7 @@
         padding: 1px;
         margin: 0px;
 	text-align: left;
+	overflow: hidden;
         /* height: 30px; */
         /* width: 100%; */
         voice-family: "\"}\"";
