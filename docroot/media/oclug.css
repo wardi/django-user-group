@@ -13,7 +13,7 @@
     }
     body { 
         font-family: helvetica,sans-serif; 
-        font-size: 75%;
+        font-size: 0.88em;
         background-color: #eeeeee;
 	text-align: center;
     }
@@ -37,13 +37,13 @@
         margin: 15px;
     }
     h1 {
-        font-size: 130%;
+        font-size: 1.30em;
         color: black;
         font-weight: bold;
         margin: 5px;
     }
     h2 {
-        font-size: 120%;
+        font-size: 1.20em;
         text-decoration: none;
         font-weight: bold;
         color: #000000;
@@ -57,7 +57,7 @@
         font-style: italic;
     }
     h3 {
-        font-size: 110%;
+        font-size: 1.10em;
         text-decoration: none;
         font-weight: bold;
         color: black;
@@ -69,7 +69,7 @@
         margin-bottom: 3px;
     }
     h4 {
-        font-size: 100%;
+        font-size: 1em;
         text-decoration: underline;
         font-weight: normal;
         color: black;
@@ -100,7 +100,7 @@
     }
     .menu ul li  {
         text-align: left;
-        font-size: 95%;
+        font-size: 0.90em;
 	font-weight: bold;
 	margin: 0;
 	padding: 3px 0px;
@@ -114,7 +114,7 @@
     .menu ul li ul li{
         list-style-type: none;
 	display: inline;
-	padding: 0.4ex 0.5ex;
+	padding: 0.4ex 1ex;
 	white-space: nowrap;
         background: #dae0e4;
     }
@@ -131,7 +131,7 @@
         voice-family:inherit;
     }
     #page {
-	width: 75em;
+	width: 70em;
 	background-color: white;
 	padding: 4px 8px;
 	border: 1px solid #dddddd;
@@ -141,11 +141,11 @@
     }
     .adminlink {
 	float: right;
-        font-size: 95%;
+        font-size: 0.90em;
 	color: #888888;
     }
     .tagline {
-	font-size: 95%;
+	font-size: 0.90em;
 	color: #888888;
 	margin-bottom: 1em;
     }
@@ -158,7 +158,7 @@
 	overflow: hidden;
     }
     .develitem {
-	font-size: 95%;
+	font-size: 0.90em;
 	margin-bottom: 1em;
     }
     
@@ -169,16 +169,16 @@
 
     .leftbox {
 	float: left;
-	width: 46em;
+	width: 44em;
 	margin-right: 4px;
     }
     .rightbox {
-	padding-left: 46em;
+	padding-left: 44em;
 	margin-left: 4px;
     }
     .midbox {
 	padding-left: 165px;
-	width: 55em; 
+	width: 50em; 
     }
     .imagebox {
 	text-align: center;
@@ -197,7 +197,7 @@
         voice-family:inherit;
     }
     .h2boxtop {
-        font-size: 110%;
+        font-size: 1.10em;
         color: black;
         font-weight: bold;
 	padding-left: 1em;
@@ -226,7 +226,7 @@
         margin-top: 25pt;
     }
     .headline {
-        font-size: 105%;
+        font-size: 1.05em;
         color: navy;
         font-weight: bold;
     }
