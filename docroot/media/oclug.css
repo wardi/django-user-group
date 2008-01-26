@@ -13,9 +13,10 @@
     }
     body { 
         font-family: helvetica,sans-serif; 
-        font-size: 0.88em;
+        font-size: 88%;
         background-color: #eeeeee;
-	text-align: center;
+	padding: 4px 4px;
+	margin: 0;
     }
     p {
         text-align: left;
@@ -37,13 +38,13 @@
         margin: 15px;
     }
     h1 {
-        font-size: 1.30em;
+        font-size: 130%;
         color: black;
         font-weight: bold;
         margin: 5px;
     }
     h2 {
-        font-size: 1.20em;
+        font-size: 120%;
         text-decoration: none;
         font-weight: bold;
         color: #000000;
@@ -57,7 +58,7 @@
         font-style: italic;
     }
     h3 {
-        font-size: 1.10em;
+        font-size: 110%;
         text-decoration: none;
         font-weight: bold;
         color: black;
@@ -69,7 +70,7 @@
         margin-bottom: 3px;
     }
     h4 {
-        font-size: 1em;
+        font-size: 100%;
         text-decoration: underline;
         font-weight: normal;
         color: black;
@@ -100,7 +101,7 @@
     }
     .menu ul li  {
         text-align: left;
-        font-size: 0.90em;
+        font-size: 90%;
 	font-weight: bold;
 	margin: 0;
 	padding: 3px 0px;
@@ -130,22 +131,13 @@
         voice-family: "\"}\"";
         voice-family:inherit;
     }
-    #page {
-	width: 70em;
-	background-color: white;
-	padding: 4px 8px;
-	border: 1px solid #dddddd;
-	margin: 0 auto;
-	text-align: left;
-	line-height: 1.3;
-    }
     .adminlink {
 	float: right;
-        font-size: 0.90em;
+        font-size: 90%;
 	color: #888888;
     }
     .tagline {
-	font-size: 0.90em;
+	font-size: 90%;
 	color: #888888;
 	margin-bottom: 1em;
     }
@@ -158,7 +150,7 @@
 	overflow: hidden;
     }
     .develitem {
-	font-size: 0.90em;
+	font-size: 90%;
 	margin-bottom: 1em;
     }
     
@@ -167,18 +159,25 @@
 	display: none;
     }
 
+    #page {
+	background-color: white;
+	padding: 4px 8px;
+	border: 1px solid #dddddd;
+	margin: 0;
+	line-height: 1.3;
+    }
     .leftbox {
 	float: left;
-	width: 44em;
+	width: 65%;
 	margin-right: 4px;
     }
     .rightbox {
-	padding-left: 44em;
+	padding-left: 65%;
 	margin-left: 4px;
     }
     .midbox {
-	padding-left: 165px;
-	width: 50em; 
+	padding-left: 15%;
+	width: 75%;
     }
     .imagebox {
 	text-align: center;
@@ -197,7 +196,7 @@
         voice-family:inherit;
     }
     .h2boxtop {
-        font-size: 1.10em;
+        font-size: 110%;
         color: black;
         font-weight: bold;
 	padding-left: 1em;
@@ -226,7 +225,7 @@
         margin-top: 25pt;
     }
     .headline {
-        font-size: 1.05em;
+        font-size: 105%;
         color: navy;
         font-weight: bold;
     }
