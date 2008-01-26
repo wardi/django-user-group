@@ -7,7 +7,7 @@ from xml.dom.minidom import parseString
 from time import strptime, localtime, strftime
 from calendar import timegm
 
-FEED_URL = "http://devel.oclug.on.ca/timeline?ticket=on&ticket_details=on&wiki=on&max=10&daysback=90&format=rss"
+FEED_URL = "http://devel.oclug.on.ca/timeline?ticket=on&wiki=on&max=15&daysback=90&format=rss"
 CACHE_TIMEOUT = 10 * 60 # in seconds
 DATE_IN_FORMAT = "%a, %d %b %Y %H:%M:%S %Z"
 DATE_OUT_FORMAT = "%d %b %H:%M"
@@ -47,8 +47,6 @@ def devel_feed(url_only=False):
             out.append(' <a href="%s">%s</a>' % (
                 i.getElementsByTagName("link")[0].firstChild.data,
                 i.getElementsByTagName("title")[0].firstChild.data))
-            out.append(
-                i.getElementsByTagName("description")[0].firstChild.data)
             out.append('</div>')
     except:
         out = ["Error encountered updating devel feed."]
