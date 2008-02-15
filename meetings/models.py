@@ -7,10 +7,10 @@ class Image(models.Model):
     reuse = models.BooleanField(default=False,
         help_text='Check if you expect to reuse this image for different '
         'talks, meetings etc.')
-    title = models.CharField(maxlength=100,
+    title = models.CharField(max_length=100,
         help_text='Text that appears when the user hovers their cursor '
         'over the image')
-    alt = models.CharField(maxlength=100,
+    alt = models.CharField(max_length=100,
         help_text='Text that appears when the image cannot be rendered')
     src = models.ImageField(upload_to='%Y/%m/%d',
         height_field='height', width_field='width')
@@ -37,7 +37,7 @@ class Announcement(models.Model):
         help_text = 'Whether this announcement is visible on the '
         'front page')
     created = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(maxlength=200,
+    title = models.CharField(max_length=200,
         help_text='The title of the announcement, '
         'eg. "OCLUG Sponsors Algonquin Programming Olympics"')
     text = models.TextField(
@@ -59,7 +59,7 @@ class Announcement(models.Model):
 
 
 class Location(models.Model):
-    name = models.CharField(maxlength=100, unique=True,
+    name = models.CharField(max_length=100, unique=True,
         help_text='A brief description of the location,  '
         'eg. "Algonquin College (Woodroffe Campus), room C144"')
     directions = models.TextField(blank=True,
@@ -70,11 +70,11 @@ class Location(models.Model):
         'Building C in the south-west corner of the campus. '
         'Free parking is available in lots 8, 9 and 12 '
         'after 5pm.", in "Markdown" format')
-    url = models.CharField(maxlength=300, blank=True,
+    url = models.CharField(max_length=300, blank=True,
         help_text='A URL showing the location in the city, '
         'eg. "http://maps.google.com/maps?q=Algonquin+College'
         '-Woodroffe,+Canada"')
-    detail_url = models.CharField(maxlength=300, blank=True,
+    detail_url = models.CharField(max_length=300, blank=True,
         help_text='A URL showing a more detailed view of the '
         'location, eg. http://www.algonquincollege.com/main/'
         'yourAlgonquinTab/directions/woodroffeMap.htm"')
@@ -117,14 +117,14 @@ MEETING_FORMATS = [
     ('W', 'LITW')]
 
 class Meeting(models.Model):
-    summary = models.CharField(maxlength=200,
+    summary = models.CharField(max_length=200,
         help_text='A summary of the meeting topics, '
         'eg. "Linux on laptops lighting talks"')
     description = models.TextField(blank=True,
         help_text='A description of events at the meeting '
         'not described in the talk descriptions, in "Markdown" '
         'format')
-    format = models.CharField(maxlength=1, default='M',
+    format = models.CharField(max_length=1, default='M',
         choices=MEETING_FORMATS)
     date = models.DateTimeField(default=next_meeting)
     location = models.ForeignKey(Location, related_name='meetings',
@@ -187,7 +187,7 @@ class Meeting(models.Model):
 
 
 class Speaker(models.Model):
-    name = models.CharField(maxlength=50, unique=True,
+    name = models.CharField(max_length=50, unique=True,
         help_text='The full name of the speaker')
     background = models.TextField(blank=True,
         help_text="The speaker's background (if available), "
@@ -209,7 +209,7 @@ class Speaker(models.Model):
     
 
 class Talk(models.Model):
-    topic = models.CharField(maxlength=100, core=True,
+    topic = models.CharField(max_length=100, core=True,
         help_text='A one-line description of the talk being given')
     description = models.TextField(blank=True,
         help_text='A full summary of the talk, in "Markdown" format')
@@ -235,7 +235,7 @@ class Talk(models.Model):
 
 
 class File(models.Model):
-    label = models.CharField(maxlength=200,
+    label = models.CharField(max_length=200,
         help_text='A brief description of the file')
     file = models.FileField(upload_to='%Y/%m/%d')
 
