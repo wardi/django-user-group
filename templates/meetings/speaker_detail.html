@@ -1,6 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% load markup %}
+{% load meetings_image %}
 
 {% block title %}
 {{ object.name|escape }} - OCLUG
@@ -14,8 +15,7 @@
 <div class="contentbox">
 
 {% if object.image %}
-    <img class="floatright" src="{{ object.get_image_url }}" 
-    alt="{{ object.name|escape }}"/>
+    {% meetings_image object.image 'class="floatright"' %}
 {% endif %}
 <div>
 {{ object.background|markdown }}
