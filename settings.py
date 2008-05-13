@@ -115,6 +115,14 @@ INSTALLED_APPS = (
     'meetings',
 )
 
+try:
+    import feedjack
+    INSTALLED_APPS = INSTALLED_APPS + ('feedjack',)
+except ImportError, err:
+    # ignore a nonexistant feedjack (not required for remote development)
+    pass
+
+
 # use local-memory caching backend
 CACHE_BACKEND = 'locmem:///'
 
