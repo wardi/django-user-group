@@ -126,3 +126,5 @@ except ImportError, err:
 # use local-memory caching backend
 CACHE_BACKEND = 'locmem:///'
 
+# be sure to append slashes (done by CommonMiddleware)
+APPEND_SLASH = True
