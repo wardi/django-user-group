@@ -66,6 +66,25 @@ alt="rss icon" title="Upcoming Meeting RSS Feed" /></a><h2 class="h2boxtop">Upco
 </div>
 {% endif %}
 
+{# planet.oclug.on.ca box #}
+
+{% if planet_oclug %}
+<div class="rightbox">
+<div class="boxtop">
+<a href='http://planet.oclug.on.ca/feed/rss/'><img align="left" src="/media/rss.png" width="14" height="14" style="margin: 0.3ex 1ex;"
+alt="rss icon" title="planet.oclug.on.ca RSS Feed" /></a><h2 
+class="h2boxtop"><a href="http://planet.oclug.on.ca">Planet OCLUG</a></h2>
+</div>
+<div class="contentbox" style="padding-bottom:0">
+{% for post in planet_oclug %}
+<div class="develitem">{{ post.date_modified|date:"d M H:i" }}
+<a href="{{ post.link }}">{{ post.title|escape }} by
+{{ post.feed.name|escape }}</a></div>
+{% endfor %}
+</div>
+</div>
+{% endif %}
+
 {# devel.oclug.on.ca box #}
 
 <div class="rightbox">

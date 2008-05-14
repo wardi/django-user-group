@@ -28,6 +28,17 @@ upcoming_meetings = {
     }
 }
 
+try:
+    import feedjack
+    # content for the Planet OCLUG box
+    upcoming_meetings['extra_context']['planet_oclug'] = lambda: (
+        feedjack.models.Post.objects.filter(
+            feed__subscriber__site__url='http://planet.oclug.on.ca'
+            ).order_by('-date_modified')[:15])
+except ImportError, err:
+    # ignore missing feedjack module
+    pass
+
 past_meetings = {
     'queryset': Meeting.objects.filter(visible=True,
         date__lt=now_less_meeting_length),
