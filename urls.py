@@ -34,8 +34,8 @@ try:
     upcoming_meetings['extra_context']['planet_oclug'] = lambda: (
         Post.objects.filter(
             feed__subscriber__site__url='http://planet.oclug.on.ca',
-            feed__subscriber__active=True,
-            feed__active=True,
+            feed__subscriber__is_active=True,
+            feed__is_active=True,
             ).order_by('-date_modified')[:15])
 except ImportError, err:
     # ignore missing feedjack module
