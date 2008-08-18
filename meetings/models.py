@@ -21,7 +21,7 @@ class Image(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return self.get_src_url()
+        return self.src.url
 
     class Admin:
         list_display = ['get_src_url','title','alt','reuse', 'width', 'height']
