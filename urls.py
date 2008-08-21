@@ -1,58 +1,24 @@
 from django.conf.urls.defaults import *
 
-from meetings.models import Meeting, Location, Speaker, Announcement
 from meetings.feeds import UpcomingMeetings
+from django.contrib import admin
 
-import datetime
+# find the installed applications ourselves
+admin.autodiscover()
 
-
-# show meetings that have not yet finished on the upcoming page
-# and the rest on the past meetings page.  A meeting is considered
-# "done" 2 hours after it starts.
-
-def now_less_meeting_length():
-    return datetime.datetime.now() - datetime.timedelta(hours=2)
-
-
-upcoming_meetings = {
-    'queryset': Meeting.objects.filter(visible=True,
-        date__gte=now_less_meeting_length).order_by("date"),
-    'template_name': 'meetings/upcoming.html',
-    'allow_empty': True,
-    'extra_context': {
-        'announcements':
-            lambda: Announcement.objects.filter(visible=True),
-        'recent':
-            lambda: Meeting.objects.filter(visible=True,
-        date__lt=now_less_meeting_length).order_by("-date")[:1],
-    }
-}
 
 try:
     from feedjack.models import Post
     # content for the Planet OCLUG box
-    upcoming_meetings['extra_context']['planet_oclug'] = lambda: (
+    upcoming_meetings_extra={'planet_oclug':lambda: (
         Post.objects.filter(
             feed__subscriber__site__url='http://planet.oclug.on.ca',
             feed__subscriber__is_active=True,
             feed__is_active=True,
-            ).order_by('-date_modified')[:15])
+            ).order_by('-date_modified')[:15])}
 except ImportError, err:
     # ignore missing feedjack module
-    pass
-
-past_meetings = {
-    'queryset': Meeting.objects.filter(visible=True,
-        date__lt=now_less_meeting_length),
-    'template_name': 'meetings/past.html',
-    'allow_empty': True,
-    'paginate_by': 20,
-    'extra_context': {
-        'recent':
-            lambda: Meeting.objects.filter(visible=True,
-        date__lt=now_less_meeting_length).order_by("-date")[:5],
-    }
-}
+    upcoming_meetings_extra={}
 
 
 # RSS feeds
@@ -66,29 +32,26 @@ feeds = {
 
 urlpatterns = patterns('',
     (r'^$', 
-        'django.views.generic.list_detail.object_list', 
-        upcoming_meetings),
+        'meetings.views.upcoming_meetings',
+        dict(extra_content=upcoming_meetings_extra)),
         
     (r'^past_meetings/$', 
-        'django.views.generic.list_detail.object_list',
-        past_meetings),
+        'meetings.views.past_meetings'),
 
     (r'^meeting/(?P<object_id>\d+)/$', 
-        'django.views.generic.list_detail.object_detail',
-        {'queryset':Meeting.objects.all()}),
+        'meetings.views.meeting_detail'),
 
     (r'^location/(?P<object_id>\d+)/$', 
-        'django.views.generic.list_detail.object_detail', 
-        {'queryset':Location.objects.all()}),
+        'meetings.views.location_detail'),
     
     (r'^speaker/(?P<object_id>\d+)/$', 
-        'django.views.generic.list_detail.object_detail', 
-        {'queryset':Speaker.objects.all()}),
+        'meetings.views.speaker_detail'),
 
     (r'^image/(?P<path>.+)/$', 
         'meetings.views.view_image'),
 
-    (r'^admin/', include('django.contrib.admin.urls')),
+    (r'^admin/(.*)$', admin.site.root),
+    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     (r'^feeds/(?P<url>.*)/$', 
         'django.contrib.syndication.views.feed', 

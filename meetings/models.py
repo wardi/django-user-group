@@ -202,5 +202,8 @@ class File(models.Model):
     def get_absolute_url(self):
         return self.file.url
 
+    def get_file_size(self):
+        return self.file.size
+
     class Meta:
         ordering = ['label']

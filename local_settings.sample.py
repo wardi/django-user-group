@@ -16,7 +16,7 @@ SECRET_KEY = 'PUT-RANDOM-STUFF-HERE'
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 ##
-MEDIA_ROOT = '/var/local/apache_writable/oclug_uploads/'
+MEDIA_ROOT = '/var/local/apache_writable/oclug_uploaded/'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.

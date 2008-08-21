@@ -54,7 +54,7 @@ admin.site.register(Speaker, SpeakerAdmin)
 
 
 class FileAdmin(admin.ModelAdmin):
-    list_display = ['label','get_absolute_url']#, 'get_file_size']  Django bug 8466
+    list_display = ['label','get_absolute_url', 'get_file_size']
     search_fields = ['label']
 
 admin.site.register(File, FileAdmin)    
