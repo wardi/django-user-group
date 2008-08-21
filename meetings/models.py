@@ -17,20 +17,16 @@ class Image(models.Model):
     width = models.IntegerField(editable=False)
     height = models.IntegerField(editable=False)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
     def get_absolute_url(self):
         return self.src.url
 
-    class Admin:
-        list_display = ['get_src_url','title','alt','reuse', 'width', 'height']
-        list_filter = ['reuse']
-        search_fields = ['title','alt']
-        
     class Meta:
         ordering = ['src']
 
+        
 
 class Announcement(models.Model):
     visible = models.BooleanField(default=True,
@@ -45,14 +41,8 @@ class Announcement(models.Model):
     image = models.ForeignKey(Image, null=True, blank=True, 
         help_text='An Image to display with the announcement')
     
-    def __str__(self):
+    def __unicode__(self):
         return self.title
-
-    class Admin:
-        list_display = ['title','visible']
-        list_filter = ['visible']
-        search_fields = ['title','text']
-        save_on_top = True
 
     class Meta:
         ordering = ['created']
@@ -82,17 +72,12 @@ class Location(models.Model):
         help_text='Whether this location should be shown when '
         'choosing the location of a new meeting.')
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
     def get_absolute_url(self):
         return "/location/%d/" % self.id
 
-    class Admin:
-        list_display = ['name','active']
-        list_filter = ['active']
-        search_fields = ['name','directions']
-        
     class Meta:
         ordering = ['name']
 
@@ -137,7 +122,7 @@ class Meeting(models.Model):
         null=True, blank=True,
         help_text='Amount donated at this meeting')
     
-    def __str__(self):
+    def __unicode__(self):
         return self.summary
    
     def readable_format(self, hide_year=False):
@@ -164,23 +149,6 @@ class Meeting(models.Model):
     def get_absolute_url(self):
         return "/meeting/%d/" % self.id
     
-    class Admin:
-        list_display = ['summary','format','date','visible',
-            'location']
-        date_hierarchy = 'date'
-        list_filter = ['format']
-        search_fields = ['summary', 'description', 'talks__topic', 
-            'talks__description']
-        fields = [
-            (None, {'fields': [['visible', 'summary'], 
-                ['format', 'location'],
-                'date']}),
-            ('Extra Description', {'fields': ['description', 'image'],
-                'classes': 'collapse'}),
-            ('Accounting', {'fields': ['donations'],
-                'classes': 'collapse'})]
-        save_on_top = True
-    
     class Meta:
         ordering = ['-date']    
         get_latest_by = 'date'
@@ -198,11 +166,8 @@ class Speaker(models.Model):
     def get_absolute_url(self):
         return "/speaker/%d/" % self.id
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
-
-    class Admin:
-        search_fields = ['name', 'background']
 
     class Meta:
         ordering = ['name']
@@ -213,22 +178,14 @@ class Talk(models.Model):
         help_text='A one-line description of the talk being given')
     description = models.TextField(blank=True,
         help_text='A full summary of the talk, in "Markdown" format')
-    meeting = models.ForeignKey(Meeting, related_name='talks',
-        edit_inline=models.STACKED, num_in_admin=2)
+    meeting = models.ForeignKey(Meeting, related_name='talks')
     speaker = models.ForeignKey(Speaker, related_name='talks')
     image = models.ForeignKey(Image, null=True, blank=True, 
         help_text='Image to be displayed next to the talk description')
         
-    def __str__(self):
+    def __unicode__(self):
         return self.topic
     
-    ## don't show on the admin interface, these should be edited from
-    ## the Meeting page
-    #
-    #class Admin:
-    #    search_fields = ['topic', 'description']
-    #    list_display = ['topic', 'meeting', 'speaker']
-        
     class Meta:
         ordering = ['topic']
         order_with_respect_to = 'meeting'
@@ -239,15 +196,11 @@ class File(models.Model):
         help_text='A brief description of the file')
     file = models.FileField(upload_to='%Y/%m/%d')
 
-    def __str__(self):
+    def __unicode__(self):
         return self.label
 
     def get_absolute_url(self):
-        return self.get_file_url()
+        return self.file.url
 
-    class Admin:
-        list_display = ['label','get_file_url', 'get_file_size']
-        search_fields = ['label']
-        
     class Meta:
         ordering = ['label']
