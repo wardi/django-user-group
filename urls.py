@@ -50,6 +50,9 @@ urlpatterns = patterns('',
     (r'^image/(?P<path>.+)/$', 
         'meetings.views.view_image'),
 
+    (r'^files/$',
+        'meetings.views.list_files'),
+
     (r'^admin/(.*)$', admin.site.root),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

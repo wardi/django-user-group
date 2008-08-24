@@ -3,7 +3,7 @@
 from django.views.generic.list_detail import object_detail, object_list
 from django.shortcuts import get_object_or_404, render_to_response
 
-from models import Image, Meeting, Location, Speaker, Announcement
+from models import Image, Meeting, Location, Speaker, Announcement, File
 
 import datetime
 
@@ -62,6 +62,16 @@ def view_image(request, path, template_name="meetings/image_detail.html"):
     img = get_object_or_404(Image, src=path)
     return render_to_response(template_name, {'img':img})
 
+
+def list_files(request, template_name="meetings/files.html"):
+    """
+    Display a text list of files that may be downloaded.
+    """
+    return object_list(request, 
+        queryset=File.objects.order_by('label'),
+        template_name=template_name,
+        allow_empty=True,
+        paginate_by=50)
 
 
 # The following are wrappers around the generic view object_detail

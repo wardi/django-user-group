@@ -265,3 +265,10 @@
     .thinbr {
 	margin-bottom: -2em;
     }
+    .file_url {
+	color: #888888;
+	font-size: 90%;
+    }
+    .file_brief a:hover {
+        text-decoration: none;
+    }

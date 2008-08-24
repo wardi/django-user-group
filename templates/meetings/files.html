@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+Media Files - OCLUG
+{% endblock %}
+
+{% block content %}
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">Media Files</h2>
+</div>
+<div class="contentbox">
+{% if object_list %}
+    {% for file in object_list %}
+        {% include "meetings/file_brief.html" %}
+    {% endfor %}
+    {% if is_paginated %}
+        <div style="padding-top: 1em;">
+        {% if has_previous %}
+            <a href="?page={{ previous }}">&lt;&lt; next</a>
+        {% else %}
+            <span style="#ddd;">&lt;&lt; next</span>
+        {% endif %}
+        [{{ page }} of {{ pages }}]
+        {% if has_next %}
+            <a href="?page={{ next }}">prev &gt;&gt;</a>
+        {% else %}
+            <span style="#ddd;">prev &gt;&gt;</span>
+        {% endif %}
+        </div>
+    {% endif %}
+{% else %}
+    <p>No media files currently posted.</p>
+{% endif %}
+</div>
+</div>
+{% endblock %}
