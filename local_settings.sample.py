@@ -24,3 +24,9 @@ TEMPLATE_DIRS = (
     'USERS-HOME-DIRECTORY/oclug_site/oclug_django_site/templates',
 )
 
+# Jobs application email addresses
+# not required unless your are testing notification of new job postings
+#
+#JOB_POSTING_EMAILS = ['person1@somehost1', 'person2@somehost2']
+#JOB_POSTING_FROM = 'jobs@thisdjangosite'
+

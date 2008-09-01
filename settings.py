@@ -1,8 +1,6 @@
 # Django settings for oclug_django_site project.
 
-from local_settings import DEBUG, DATABASE_ENGINE, DATABASE_NAME, \
-    DATABASE_USER, DATABASE_PASSWORD, DATABASE_HOST, DATABASE_PORT, \
-    SECRET_KEY, MEDIA_ROOT, TEMPLATE_DIRS
+from local_settings import *
 
 # The settings above were removed from this file so that they can be 
 # customized on a per-site basis.  local_settings.py is not checked in
@@ -75,6 +73,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.redirects',
     'meetings',
+    'jobs',
 )
 
 try:

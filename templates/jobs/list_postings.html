@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+Ottawa Linux/OSS Job Postings - OCLUG
+{% endblock %}
+
+{% block content %}
+
+<div class="midbox">
+<div class="boxtop">
+<a href="/feeds/jobs/"><img align="left" src="/media/rss.png" width="14" height="14" style="margin: 0.3ex 1ex;"
+alt="rss icon" title="Jobs RSS Feed" /></a><h2 class="h2boxtop">Linux and Open Source Job Postings in the Ottawa Area
+</h2>
+</div>
+
+<div class="contentbox">
+<p>
+<a href="/posting/new/">Create a new job posting</a>
+</p>
+{% if object_list %}
+    {% for posting in object_list %}
+        <div style="padding-top: 1ex;">
+        <h3><a href="{{ posting.get_absolute_url }}"
+        >{{ posting.title }}</a></h3>
+	<p>{{ posting.description|truncatewords:50|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    No jobs are currently posted.
+{% endif %}    
+</div>
+</div>
+
+{% endblock %}
+

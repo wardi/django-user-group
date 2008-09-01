@@ -66,6 +66,36 @@ alt="rss icon" title="Upcoming Meeting RSS Feed" /></a><h2 class="h2boxtop">Upco
 </div>
 {% endif %}
 
+{# Jobs box #}
+
+<div class="rightbox">
+<div class="boxtop">
+<a href='/feeds/jobs/'><img align="left" src="/media/rss.png" width="14" height="14" style="margin: 0.3ex 1ex;"
+alt="rss icon" title="Jobs RSS Feed" /></a><h2 
+class="h2boxtop"><a href="/jobs/">Linux/OSS Job Postings</a></h2>
+</div>
+<div class="contentbox" style="padding-bottom:0">
+{% for posting in jobs %}
+<div class="develitem">
+<a href="/posting/{{ posting.id }}/">{{ posting.title }}</a></div>
+{% endfor %}
+</div>
+</div>
+
+{# devel.oclug.on.ca box #}
+
+<div class="rightbox">
+<div class="boxtop">
+<a href='{% devel_feed "True" %}'><img align="left" src="/media/rss.png" width="14" height="14" style="margin: 0.3ex 1ex;"
+alt="rss icon" title="devel.oclug.on.ca RSS Feed" /></a><h2 
+class="h2boxtop"><a href="http://devel.oclug.on.ca">Wiki and Ticket Changes</a></h2>
+</div>
+<div class="contentbox" style="padding-bottom:0">
+{# render devel.oclug.on.ca feed (see meetings/templatetags/devel_feed.py) #}
+{% devel_feed %}
+</div>
+</div>
+
 {# planet.oclug.on.ca box #}
 
 {% if planet_oclug %}
@@ -85,19 +115,6 @@ class="h2boxtop"><a href="http://planet.oclug.on.ca">Planet OCLUG</a></h2>
 </div>
 {% endif %}
 
-{# devel.oclug.on.ca box #}
-
-<div class="rightbox">
-<div class="boxtop">
-<a href='{% devel_feed "True" %}'><img align="left" src="/media/rss.png" width="14" height="14" style="margin: 0.3ex 1ex;"
-alt="rss icon" title="devel.oclug.on.ca RSS Feed" /></a><h2 
-class="h2boxtop"><a href="http://devel.oclug.on.ca">Wiki and Ticket Changes</a></h2>
-</div>
-<div class="contentbox" style="padding-bottom:0">
-{# render devel.oclug.on.ca feed (see meetings/templatetags/devel_feed.py) #}
-{% devel_feed %}
-</div>
-</div>
 
 {% endblock %}
 

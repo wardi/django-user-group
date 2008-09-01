@@ -1,0 +1,51 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+Create an Ottawa Linux/OSS Job Posting - OCLUG
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+{% if preview %}
+    <div class="midbox">
+    <div class="boxtop">
+    <h2 class="h2boxtop">Preview of "{{ preview.title }}"</h2>
+    </div>
+    <div class="contentbox">
+    {{ preview.description|linebreaks }}
+    <h2>Contact:</h2>
+    {{ preview.contact|linebreaks }}
+    <input type="submit" name="submit" value="Submit Job Posting" />
+    </div>
+    </div>
+{% endif %}
+
+
+<div class="midbox">
+<div class="boxtop">
+{% if preview %}
+    <h2 class="h2boxtop">Continue Editing Your Job Posting</h2>
+{% else %}
+    <h2 class="h2boxtop">Create an Ottawa Linux/OSS Job Posting</h2>
+{% endif %}
+</div>
+<div class="contentbox">
+
+
+<div>
+<table>
+{{ form }}
+<tr><td>&nbsp;</td><td>
+<input type="submit" name="preview" value="Preview Job Posting" />
+</td>
+</table>
+<p>
+{{ object.description }}
+</p>
+<p>
+{{ object.contact }}
+</p>
+</div>
+</div>
+</form>
+{% endblock %}

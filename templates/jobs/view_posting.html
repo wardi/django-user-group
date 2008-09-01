@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+{{ object.title }} - Ottawa Linux/OSS Job Postings - OCLUG
+{% endblock %}
+
+{% block content %}
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">{{ object.title }} - Ottawa Linux/OSS Job Postings</h2>
+</div>
+<div class="contentbox">
+{{ object.description|linebreaks }}
+<h2>Contact:</h2>
+{{ object.contact|linebreaks }}
+<p style="padding-top:2em;">
+<a href="/jobs/">Return to Job Postings</a>
+</p>
+</div>
+</div>
+{% endblock %}

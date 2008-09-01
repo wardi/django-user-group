@@ -1,0 +1,62 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+{{ posting.title }} - Edit Job Posting - OCLUG
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">{{ posting.title }} - Edit Job Posting</h2>
+</div>
+<div class="contentbox">
+<p>
+Thank you for sumbitting a job posting!
+This is the page you may use to delete or extend the expiration
+of your job posting. <b>Please bookmark this page</b> so that you can
+find it again later.
+</p>
+<p>
+{% if posting.visible %}
+    Your job posting is shown in the job listings.
+{% else %}
+    Your job posting is <b>not currently shown</b> in the job listings.
+{% endif %}
+</p>
+<p>
+{% if posting.accepted %}
+    Your job posting was accepted on {{ posting.accepted|date:"M d, Y" }}.
+{% else %}
+    Your job posting has not yet been accepted by a moderator.
+    Please be patient as it may take a few days for your job posting to
+    be reviewed.
+{% endif %}
+</p>
+<p>
+Your job posting expires on {{ posting.expires|date:"M d, Y" }}. You may
+use this page to extend the expiration to {{ next_expiration|timeuntil }}
+from the current date.
+</p>
+<p>
+<input type="submit" name="extend" value="Extend Job Posting" />
+</p>
+<p style="padding-top:2em;">
+<a href="/jobs/">Return to Job Postings</a>
+</p>
+</div>
+</div>
+
+<div class="midbox">
+<div class="boxtop">
+<h2 class="h2boxtop">Preview of "{{ posting.title }}"</h2>
+</div>
+<div class="contentbox">
+{{ posting.description|linebreaks }}
+<h2>Contact:</h2>
+{{ posting.contact|linebreaks }}
+<input type="submit" name="delete" value="Delete this Job Posting" />
+</div>
+</div>
+</form>
+{% endblock %}
