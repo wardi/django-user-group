@@ -174,7 +174,7 @@ class Speaker(models.Model):
     
 
 class Talk(models.Model):
-    topic = models.CharField(max_length=100, core=True,
+    topic = models.CharField(max_length=100, 
         help_text='A one-line description of the talk being given')
     description = models.TextField(blank=True,
         help_text='A full summary of the talk, in "Markdown" format')

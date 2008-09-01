@@ -81,7 +81,7 @@ def list_files(request, template_name="meetings/files.html"):
 def meeting_detail(request, object_id, 
     template_name="meetings/meeting_detail.html"):
     return object_detail(request, object_id=object_id, 
-        template_name=tempate_name, queryset=Meeting.objects.all())
+        template_name=template_name, queryset=Meeting.objects.all())
 
 def location_detail(request, object_id,
     template_name="meetings/location_detail.html"):
