@@ -98,39 +98,22 @@
     {% ifnotequal item.subscriber.shortname "nobody" %}
     <span class="nick">{{ item.subscriber.shortname }}</span><br/>
     {% endifnotequal %}
-    {% if item.subscriber.get_cloud %}
-    <span class="url">
-      <a href="{{ item.feed.link }}">{{ item.feed.title }}</a> {% trans "is about" %} »
-    </span>
-    <div class="tags">
-      <ul>
-        {% for tag in item.subscriber.get_cloud %}
-        <li><a
-          href="{{ site.url }}/user/{{ item.subscriber.feed.id }}/tag/{{ tag.tagname|urlencode}}/"
-          title="{% blocktrans count tag.count as posts %}{{ posts }} post{% plural %}{{ posts }} posts{% endblocktrans %}"
-          class="cloud_{{ tag.weight }}">{{ tag.tagname }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% else %}
     <span class="url">
       <a href="{{ item.feed.link }}">{{ item.feed.title }}</a>
     </span>
-    {% endif %}
   </div>
   {% endifchanged %}
 
   {% if item.title %}
-  <div class="post-title">» {{ item.title }}</div>
+  <div class="post-title"><a href="{{ item.link }}">» {{ item.title }}</a></div>
   {% else %}
   <div class="post-title">» {{ item.subscriber.name }}</div>
   {% endif %}
   <div class="post-content">
     <p>{{ item.content|safe }}</p>
     <div class="post-meta">
-      <a href="{{ item.link }}">
       {% if item.author %}{% blocktrans with item.author as author %}by {{ author }} at{% endblocktrans %}{% endif %}
-      {{ item.date_modified|date:"g:i A" }}</a>
+      {{ item.date_modified|date:"g:i A" }}
       {% for tag in item.qtags %}
           {% if forloop.first %}{% trans "under" %}{% endif %}
           <a href="{{ site.url }}/tag/{{ tag.name }}">{{ tag.name }}</a>
