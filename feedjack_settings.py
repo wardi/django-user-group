@@ -2,7 +2,7 @@
 
 from settings import *
 
-from django.conf.urls.defaults import patterns, include
+from django.conf.urls.defaults import *
 
 assert 'feedjack' in INSTALLED_APPS, "Failed to locate feedjack module, is it installed properly?"
 
