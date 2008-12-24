@@ -65,7 +65,7 @@ urlpatterns = patterns('',
     (r'^posting/(?P<posting_id>\d+)/$',
         'jobs.views.view_posting'),
 
-    (r'^posting/new/$',
+    (r'^posting/new/nospam/$',
         'jobs.views.new_posting'),
 
     (r'^posting/edit/(?P<posting_id>\d+)/(?P<hash>[\dabcdef]+)/$',
