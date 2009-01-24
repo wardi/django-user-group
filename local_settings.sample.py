@@ -10,6 +10,11 @@ DATABASE_HOST = ''             # Set to empty string for localhost. Not used wit
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 ##
 
+# where error emails will be sent
+ADMINS = (
+#    ('Admin Person', 'admin@person.somewhere'),
+)
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'PUT-RANDOM-STUFF-HERE'
 ##

@@ -11,10 +11,6 @@ from local_settings import *
 
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    ('OCLUG Web List', 'oclug-www@lists.oclug.on.ca'),
-)
-
 MANAGERS = ADMINS
 
 # Local time zone for this installation. Choices can be found here:
