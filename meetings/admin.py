@@ -26,7 +26,7 @@ admin.site.register(Location, LocationAdmin)
 
 class TalkInline(admin.StackedInline):
     model = Talk
-    max_num = 3
+    max_num = 5
 
 
 class MeetingAdmin(admin.ModelAdmin):
