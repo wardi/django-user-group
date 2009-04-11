@@ -99,7 +99,9 @@ MEETING_FORMATS = [
     ('A', 'AGM'), 
     ('M', 'Meeting'), 
     ('T', 'Tutorial'),
-    ('W', 'LITW')]
+    ('W', 'LITW'),
+    ('E', 'Event'),
+]
 
 class Meeting(models.Model):
     summary = models.CharField(max_length=200,
