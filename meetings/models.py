@@ -143,6 +143,8 @@ class Meeting(models.Model):
             return mn + " Meeting"
         if self.format == "T":
             return mn + " Tutorial"
+        if self.format == "E":
+            return "Special Event"
     
     def readable_format_no_year(self):
         """a convenience function for calling from templates"""
