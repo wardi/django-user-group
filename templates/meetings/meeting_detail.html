@@ -34,14 +34,16 @@ Location: <a href="{{ object.location.get_absolute_url }}"
 {% endif %}
 {% if object.talks %}
     {% for talk in object.talks.all %}
-    	{% include "meetings/talk_info.html" %}
+        {% include "meetings/talk_info.html" %}
 
-	{% if talk.speaker.background %}
-	    <div style="padding-bottom: 1em;">
-	    <h3>About the Speaker</h3>
-	    {{ talk.speaker.background|markdown }}
-	    </div>
-	{% endif %}
+        {% for speaker in talk.speakers.all %}
+            {% if speaker.background %}
+                <div style="padding-bottom: 1em;">
+                <h3>About the Speaker</h3>
+                {{ speaker.background|markdown }}
+                </div>
+            {% endif %}
+        {% endfor %}
     {% endfor %}
 {% endif %}
 <br class="thinbr" />

@@ -6,8 +6,10 @@
     {% meetings_image talk.image 'class="floatright"' %}
 {% endif %}
 <h2>{{ talk.topic|escape }}</h2>
-Speaker: <a href="{{ talk.speaker.get_absolute_url }}"
->{{ talk.speaker.name|escape }}</a><br/>
+{% for speaker in talk.speakers.all %}
+Speaker: <a href="{{ speaker.get_absolute_url }}"
+>{{ speaker.name|escape }}</a><br/>
+{% endfor %}
 {{ talk.description|markdown }}
 <br class="thinbr" />
 </div>

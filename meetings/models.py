@@ -183,7 +183,7 @@ class Talk(models.Model):
     description = models.TextField(blank=True,
         help_text='A full summary of the talk, in "Markdown" format')
     meeting = models.ForeignKey(Meeting, related_name='talks')
-    speaker = models.ForeignKey(Speaker, related_name='talks')
+    speakers = models.ManyToManyField(Speaker, related_name='talks')
     image = models.ForeignKey(Image, null=True, blank=True, 
         help_text='Image to be displayed next to the talk description')
         
