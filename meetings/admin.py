@@ -26,6 +26,7 @@ admin.site.register(Location, LocationAdmin)
 
 class TalkInline(admin.StackedInline):
     model = Talk
+    filter_horizontal = ['speakers']
 
 
 class MeetingAdmin(admin.ModelAdmin):
