@@ -92,8 +92,8 @@ def next_meeting():
         next_yr, next_mn = next_yr+1, 1
     next = datetime.datetime(next_yr, next_mn, 1, 19)
     wd = next.weekday() # 0 = Monday
-    # shift to the first Tuesday
-    return next + datetime.timedelta([1, 0, 6, 5, 4, 3, 2][wd])
+    # shift to the first Thursday
+    return next + datetime.timedelta([3, 2, 1, 0, 6, 5, 4][wd])
 
 MEETING_FORMATS = [
     ('A', 'AGM'), 
