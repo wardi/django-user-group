@@ -80,7 +80,7 @@ This command will make the home directory world-traversable::
 Downloading the Code and Site data
 ==================================
 
-.. NOTE:
+.. NOTE::
    These instructions will stop working once the devel.oclug.on.ca site
    is taken offline.
 
@@ -175,7 +175,7 @@ with the account created above.
 Updating Your Copy
 ==================
 
-.. NOTE:
+.. NOTE::
    These instructions will stop working once the devel.oclug.on.ca site
    is taken offline.
 
